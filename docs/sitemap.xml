@@ -2,34 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://lianxhcn.github.io/quarto_book/index.html</loc>
-    <lastmod>2025-06-09T09:51:25.381Z</lastmod>
+    <lastmod>2025-06-23T02:15:29.763Z</lastmod>
   </url>
   <url>
-    <loc>https://lianxhcn.github.io/quarto_book/body/01_intro.html</loc>
-    <lastmod>2025-06-09T10:36:17.722Z</lastmod>
+    <loc>https://lianxhcn.github.io/quarto_book/body/01--DID.html</loc>
+    <lastmod>2025-06-23T02:21:36.012Z</lastmod>
   </url>
   <url>
-    <loc>https://lianxhcn.github.io/quarto_book/body/02_install_setting.html</loc>
-    <lastmod>2025-06-09T07:47:08.556Z</lastmod>
+    <loc>https://lianxhcn.github.io/quarto_book/body/02--进展.html</loc>
+    <lastmod>2025-06-23T02:21:54.340Z</lastmod>
   </url>
   <url>
-    <loc>https://lianxhcn.github.io/quarto_book/body/03_YML_file.html</loc>
-    <lastmod>2025-06-09T07:30:11.505Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lianxhcn.github.io/quarto_book/body/04_github_page.html</loc>
-    <lastmod>2025-06-09T10:32:58.028Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lianxhcn.github.io/quarto_book/body/05_references.html</loc>
-    <lastmod>2025-06-09T07:30:11.506Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lianxhcn.github.io/quarto_book/body/A01_markdown.html</loc>
-    <lastmod>2025-06-09T07:30:11.507Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lianxhcn.github.io/quarto_book/body/A02_JupyterNotebook.html</loc>
-    <lastmod>2025-06-09T07:30:11.508Z</lastmod>
+    <loc>https://lianxhcn.github.io/quarto_book/body/03--SCM.html</loc>
+    <lastmod>2025-06-23T02:22:10.695Z</lastmod>
   </url>
 </urlset>

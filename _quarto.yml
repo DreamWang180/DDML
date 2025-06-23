@@ -5,7 +5,7 @@ project:
 book:
   title: "Quarto Book"
   reader-mode: true 
-  author: "连玉君"
+  author: "Metrics"
   date: today
   date-format: iso
 #  lang: zh  # 不要设置这个，会导致很多问题
@@ -29,24 +29,23 @@ book:
 
     - index.qmd
 
-    - part: "**Quarto 简介**"
+    - part: "**DID简介**"
       chapters: 
-        - body/01_intro.md
-        - body/02_install_setting.md
+        - body/01--DID.md
+     
 
-    - part: "**创建 Quarto-book**"
+    - part: "**DID进展**"
       chapters: 
-        - body/03_YML_file.md
-        - body/04_github_page.md
+        - body/02--进展.md
       
-    - part: "**参考资料**"
+    - part: "**SCM进展**"
       chapters: 
-        - body/05_references.md
+        - body/03--SCM.md
 
-    - part: "**附录**"
-      chapters: 
-        - body/A01_markdown.md
-        - body/A02_JupyterNotebook.ipynb
+#     - part: "**附录**"
+#      chapters:  
+#        - body/A01_markdown.md
+#        - body/A02_JupyterNotebook.ipynb
 
 format:
   html:

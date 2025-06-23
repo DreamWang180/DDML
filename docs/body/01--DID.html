@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Metrics">
-<meta name="dcterms.date" content="2025-06-23">
 
-<title>Quarto Book</title>
+<title>did – Quarto Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,25 +23,26 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./body/01--DID.html" rel="next">
-<link href="./images/book-logo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c1f63da3e08f13bc72dc17e92cfd001d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-7bb155a724e1e2e76a6aa2808839ad2c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../body/02--进展.html" rel="next">
+<link href="../index.html" rel="prev">
+<link href="../images/book-logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c1f63da3e08f13bc72dc17e92cfd001d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-7bb155a724e1e2e76a6aa2808839ad2c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -73,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light">
@@ -85,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Home</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../body/01--DID.html"><strong>DID简介</strong></a></li><li class="breadcrumb-item"><a href="../body/01--DID.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">01–DID.html</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -100,10 +99,10 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="https://lianxhcn.github.io/quarto_book/" class="sidebar-logo-link">
-      <img src="./images/book-logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="../images/book-logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Quarto Book</a> 
+      <a href="../">Quarto Book</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/lianxhcn/quarto_book" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
@@ -123,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Home</span></span></a>
   </div>
 </li>
@@ -138,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/01--DID.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/01--DID.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">01–DID.html</span></span></a>
   </div>
 </li>
@@ -155,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/02--进展.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/02--进展.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">02–进展.html</span></span></a>
   </div>
 </li>
@@ -172,7 +171,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/03--SCM.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/03--SCM.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">03–SCM.html</span></span></a>
   </div>
 </li>
@@ -187,43 +186,169 @@ ul.task-list li input[type="checkbox"] {
         
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../body/01--DID.html"><strong>DID简介</strong></a></li><li class="breadcrumb-item"><a href="../body/01--DID.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">01–DID.html</span></a></li></ol></nav></header>
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Quarto Book</h1>
+
+
+
+&lt;!DOCTYPE html&gt;
+
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f8f9ff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(15deg, #ffffff 0%, #f5f8ff 100%);
+    border-radius: 0;
+    padding: 40px 80px;
+    font-family: 'Helvetica Neue', system-ui, sans-serif;
+    box-shadow: 0 0 50px rgba(76,111,255,0.08);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: 800;
+    color: #1A237E;
+    letter-spacing: -0.5px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.title-emoji {
+    font-size: 42px;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
+}
+
+.list-columns {
+    column-count: 4;
+    column-gap: 50px;
+    column-rule: 1px solid rgba(76,111,255,0.15);
+}
+
+.list-item {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    padding-left: 35px;
+    position: relative;
+    break-inside: avoid;
+    color: #2D3748;
+    transition: transform 0.2s;
+}
+
+.list-item:hover {
+    transform: translateX(5px);
+}
+
+.list-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 8px;
+    height: 8px;
+    background: #4C6FFF;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(76,111,255,0.3);
+}
+
+.emoji {
+    font-size: 20px;
+    margin-right: 10px;
+    vertical-align: middle;
+    filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.1));
+}
+
+.decorative-line {
+    height: 5px;
+    background: linear-gradient(90deg, #4C6FFF 0%, #80D0C7 100%);
+    border-radius: 3px;
+    margin: 40px 0;
+    box-shadow: 0 4px 12px rgba(76,111,255,0.15);
+}
+
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #4C6FFF;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+</style>
+
+
+<div class="card">
+<pre><code>&lt;div class="header"&gt;
+    &lt;h1 class="title"&gt;
+        &lt;span class="title-emoji"&gt;🚀&lt;/span&gt;
+        Deepseek赋能DID学术研究指南
+        &lt;span class="title-emoji"&gt;📚&lt;/span&gt;
+    &lt;/h1&gt;
+&lt;/div&gt;
+
+&lt;div class="decorative-line"&gt;&lt;/div&gt;
+
+&lt;div class="list-columns"&gt;
+    &lt;!-- 保持原始26项内容完整 --&gt;
+    &lt;div class="list-item"&gt;&lt;span class="emoji"&gt;🔬&lt;/span&gt;Deepseek辅助下的双重差分原理&lt;/div&gt;
+    &lt;div class="list-item"&gt;&lt;span class="emoji"&gt;💻&lt;/span&gt;Deepseek辅助下的双重差分Stata实现&lt;/div&gt;
+    &lt;div class="list-item"&gt;&lt;span class="emoji"&gt;📊&lt;/span&gt;DID模型分类与适用场景解析&lt;/div&gt;
+    &lt;div class="list-item"&gt;&lt;span class="emoji"&gt;✅&lt;/span&gt;Deepseek辅助下的DID前提假设诊断&lt;/div&gt;
+    &lt;div class="list-item"&gt;&lt;span class="emoji"&gt;📈&lt;/span&gt;平行趋势检验的Deepseek全流程解决方案&lt;/div&gt;
+    &lt;div class="list-item"&gt;&lt;span class="emoji"&gt;🧪&lt;/span&gt;Deepseek驱动的敏感性分析体系构建&lt;/div&gt;
+    &lt;div class="list-item"&gt;&lt;span class="emoji"&gt;🔄&lt;/span&gt;安慰剂检验的Deepseek创新应用&lt;/div&gt;
+    &lt;div class="list-item"&gt;&lt;span class="emoji"&gt;⚡&lt;/span&gt;Deepseek辅助DID自动化&lt;/div&gt;
+    &lt;div class="list-item"&gt;&lt;span class="emoji"&gt;🔍&lt;/span&gt;三重差分(DDD)的深度应用场景解析&lt;/div&gt;
+    &lt;div class="list-item"&gt;&lt;span class="emoji"&gt;✨&lt;/span&gt;PSM-DID的Deepseek实现范式革新&lt;/div&gt;
+    &lt;div class="list-item"&gt;&lt;span class="emoji"&gt;🎯&lt;/span&gt;Deepseek辅助异质性处理效应&lt;/div&gt;
+    &lt;div class="list-item"&gt;&lt;span class="emoji"&gt;⚠️&lt;/span&gt;传统TWFE局限性与交叠DID偏误诊断&lt;/div&gt;
+    &lt;div class="list-item"&gt;&lt;span class="emoji"&gt;🌟&lt;/span&gt;Deepseek辅助双向固定效应估计量最新进展&lt;/div&gt;
+    &lt;div class="list-item"&gt;&lt;span class="emoji"&gt;🧩&lt;/span&gt;交叠DID的Bacon分解&lt;/div&gt;
+    &lt;div class="list-item"&gt;&lt;span class="emoji"&gt;⚖️&lt;/span&gt;交叠DID的负权重诊断分析&lt;/div&gt;
+    &lt;div class="list-item"&gt;&lt;span class="emoji"&gt;🛡️&lt;/span&gt;Deepseek辅助异质稳健估计量&lt;/div&gt;
+    &lt;div class="list-item"&gt;&lt;span class="emoji"&gt;⏳&lt;/span&gt;Deepseek辅助组别时期估计量&lt;/div&gt;
+    &lt;div class="list-item"&gt;&lt;span class="emoji"&gt;🔧&lt;/span&gt;Deepseek辅助插补估计量&lt;/div&gt;
+    &lt;div class="list-item"&gt;&lt;span class="emoji"&gt;📦&lt;/span&gt;Deepseek辅助的堆叠估计量&lt;/div&gt;
+    &lt;div class="list-item"&gt;&lt;span class="emoji"&gt;🤖&lt;/span&gt;Deepseek辅助的DIDm估计量的自动化实现与应用&lt;/div&gt;
+    &lt;div class="list-item"&gt;&lt;span class="emoji"&gt;📐&lt;/span&gt;Deepseek辅助的SA估计量的Stata实现&lt;/div&gt;
+    &lt;div class="list-item"&gt;&lt;span class="emoji"&gt;🔢&lt;/span&gt;Deepseek辅助的CS估计量&lt;/div&gt;
+    &lt;div class="list-item"&gt;&lt;span class="emoji"&gt;🆕&lt;/span&gt;异质性稳健TWFE的交叠DID命令的Stata实现&lt;/div&gt;
+    &lt;div class="list-item"&gt;&lt;span class="emoji"&gt;🧮&lt;/span&gt;插补与堆叠估计量的Stata实现&lt;/div&gt;
+    &lt;div class="list-item"&gt;&lt;span class="emoji"&gt;⏲️&lt;/span&gt;局部投影估计量的自动化实现与应用&lt;/div&gt;
+    &lt;div class="list-item"&gt;&lt;span class="emoji"&gt;🌐&lt;/span&gt;合成DID的Deepseek创新实践&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="decorative-line"&gt;&lt;/div&gt;
+
+&lt;div class="footer"&gt;
+    数量经济学 Deepseek辅助Stata学术应用 | 科研效率革命性升级
+&lt;/div&gt;</code></pre>
 </div>
 
 
-
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Metrics </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2025-06-23</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p> </p>
-<p><img src="images/book-front.png" width="350"></p>
-<p> </p>
-<p>    <a href="https://www.aistata.cn">主页</a> || <a href="https://www.aistata.cn">课程</a> || <a href="https://www.aistata.cn">视频</a> || <a href="https://www.lianxh.cn/blogs/all.html">推文</a> || <a href="https://www.aistata.cn">资料</a></p>
 
 
 
@@ -634,10 +759,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../index.html" class="pagination-link" aria-label="Home">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Home</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./body/01--DID.html" class="pagination-link" aria-label="01--DID.html">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">01–DID.html</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../body/02--进展.html" class="pagination-link" aria-label="02--进展.html">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">02–进展.html</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
