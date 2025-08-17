@@ -5,7 +5,7 @@ project:
 book:
   title: "Quarto Book"
   reader-mode: true 
-  author: "Metrics"
+  author: "连玉君"
   date: today
   date-format: iso
 #  lang: zh  # 不要设置这个，会导致很多问题
@@ -29,23 +29,30 @@ book:
 
     - index.qmd
 
-    - part: "**DID简介**"
+    - part: "**StataDDML 主页简介**"
       chapters: 
-        - body/01--DID.md
-     
-
-    - part: "**DID进展**"
+        - body/StataML.md 
+    
+    - part: "**Stata-Python设置**"
       chapters: 
-        - body/02--进展.md
+        - body/10_InstallStataPython.md
+ 
       
-    - part: "**SCM进展**"
+    - part: "**DDML模型**"
       chapters: 
-        - body/03--SCM.md
+        - body/01_intro.md       
+        - body/02_data.md        
+        - body/03_PartialLinearIVModel.md
+        - body/04_PartiallylinearmodelwithStacking.md
+        - body/05_Interactive.md 
+        - body/06_PartiallyLinearModel.md
+        - body/07_FlexiblePartiallyLinearIVModel.md
+        - body/08_InteractiveIVModel.md
+        - body/09_Installation.md
 
-#     - part: "**附录**"
-#      chapters:  
-#        - body/A01_markdown.md
-#        - body/A02_JupyterNotebook.ipynb
+    - part: "**参考资料**"
+      chapters: 
+        - body/11_Readingspaper.md
 
 format:
   html:
@@ -66,4 +73,9 @@ format:
     md-extensions:
       - callout                        # 确保 markdown 支持 callout 块语法
 editor: visual
+
+
+
+
+        - body/StataML.md 
 
