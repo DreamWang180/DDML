@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="数量经济学">
-<meta name="dcterms.date" content="2025-08-17">
 
-<title>Quarto Book</title>
+<title>13&nbsp; ddml – Quarto Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,25 +23,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./body/A01_StataML.html" rel="next">
-<link href="./images/book-logo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c1f63da3e08f13bc72dc17e92cfd001d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-7bb155a724e1e2e76a6aa2808839ad2c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../body/09_Installation.html" rel="prev">
+<link href="../images/book-logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c1f63da3e08f13bc72dc17e92cfd001d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-7bb155a724e1e2e76a6aa2808839ad2c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -72,8 +70,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light">
@@ -85,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Home</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../body/11_Readingspaper.html"><strong>参考资料</strong></a></li><li class="breadcrumb-item"><a href="../body/11_Readingspaper.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">ddml</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -100,10 +127,10 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="https://lianxhcn.github.io/quarto_book/" class="sidebar-logo-link">
-      <img src="./images/book-logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="../images/book-logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Quarto Book</a> 
+      <a href="../">Quarto Book</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/lianxhcn/quarto_book" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
@@ -123,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Home</span></span></a>
   </div>
 </li>
@@ -138,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/A01_StataML.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/A01_StataML.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">欢迎访问 Stata ML 页面</span></span></a>
   </div>
 </li>
@@ -155,7 +182,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/10_InstallStataPython.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/10_InstallStataPython.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">设置 Stata 的 Python 集成</span></span></a>
   </div>
 </li>
@@ -172,55 +199,55 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/01_intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/01_intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">设置 Stata 的 Python 集成</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/02_data.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/02_data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">设置 Stata 的 Python 集成</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/03_PartialLinearIVModel.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/03_PartialLinearIVModel.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">部分线性工具变量（IV）模型</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/04_PartiallylinearmodelwithStacking.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/04_PartiallylinearmodelwithStacking.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">部分线性模型与堆叠回归</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/05_Interactive.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/05_Interactive.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">交互式模型</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/06_PartiallyLinearModel.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/06_PartiallyLinearModel.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">部分线性模型</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/07_FlexiblePartiallyLinearIVModel.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/07_FlexiblePartiallyLinearIVModel.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">灵活的部分线性工具变量（IV）模型</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/08_InteractiveIVModel.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/08_InteractiveIVModel.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">交互式工具变量（IV）模型</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/09_Installation.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/09_Installation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">安装 ddml</span></span></a>
   </div>
 </li>
@@ -237,7 +264,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/11_Readingspaper.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/11_Readingspaper.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">ddml</span></span></a>
   </div>
 </li>
@@ -248,34 +275,30 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#pystacked" id="toc-pystacked" class="nav-link active" data-scroll-target="#pystacked"><span class="header-section-number">13.0.1</span> pystacked</a></li>
+  <li><a href="#lassopack" id="toc-lassopack" class="nav-link" data-scroll-target="#lassopack"><span class="header-section-number">13.0.2</span> lassopack</a></li>
+  <li><a href="#幻灯片" id="toc-幻灯片" class="nav-link" data-scroll-target="#幻灯片"><span class="header-section-number">13.0.3</span> 幻灯片</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../body/11_Readingspaper.html"><strong>参考资料</strong></a></li><li class="breadcrumb-item"><a href="../body/11_Readingspaper.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">ddml</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Quarto Book</h1>
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">ddml</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>数量经济学 </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2025-08-17</p>
-    </div>
-  </div>
   
     
   </div>
@@ -285,12 +308,34 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p> </p>
-<p><img src="images/book-front.png" width="350"></p>
-<p> </p>
-<p>    <a href="https://www.lianxh.cn">主页</a> || <a href="https://www.lianxh.cn/details/17.html">课程</a> || <a href="https://lianxh-class.cn/">视频</a> || <a href="https://www.lianxh.cn/blogs/all.html">推文</a> || <a href="https://www.lianxh.cn/share.html">资料</a></p>
+<p>Ahrens, A., Hansen, C.B., Schaffer, M.E., and Wiemann, T. (2023). ddml: Double/Debiased Machine Learning in Stata. arXiv preprint arXiv:2301.09397.</p>
+<p>我们介绍了 Stata 中的 <strong>ddml</strong> 包，用于双重/去偏机器学习（Double/Debiased Machine Learning，简称 DDML）。该包支持五种不同计量经济学模型的因果参数估计，能够灵活估计内生变量在功能形式未知和/或外生变量众多的情况下的因果效应。<strong>ddml</strong> 与 Stata 中许多现有的监督学习程序兼容。我们推荐将 DDML 与堆叠估计（stacking estimation）结合使用，堆叠估计将多个机器学习模型结合成最终的预测器。我们提供了蒙特卡洛证据来支持我们的推荐。</p>
+<p><a href="#">链接到工作论文</a></p>
+<p><a href="#">Bibtex 文件</a></p>
+<hr>
+<section id="pystacked" class="level3" data-number="13.0.1">
+<h3 data-number="13.0.1" class="anchored" data-anchor-id="pystacked"><span class="header-section-number">13.0.1</span> pystacked</h3>
+<p>Ahrens, A., Hansen, C.B., and Schaffer, M.E. (2022). pystacked: Stacking Generalization and Machine Learning in Stata. arXiv preprint arXiv:2208.10896.</p>
+<p><strong>pystacked</strong> 实现了堆叠泛化（stacked generalization，Wolpert，1992），用于通过 Python 的 scikit-learn 进行回归和二分类。堆叠将多个监督学习模型（“基础”或“第 0 层”模型）组合成一个单一的学习器。当前支持的基础学习器包括正则化回归、随机森林、梯度提升树、支持向量机和前馈神经网络（多层感知机）。<strong>pystacked</strong> 也可以作为一个常规机器学习程序使用，拟合单个基础学习器，因此为 scikit-learn 的机器学习算法提供了一个易于使用的 API。</p>
+<p><a href="#">链接到工作论文</a></p>
+<p><a href="#">Bibtex 文件</a></p>
+<hr>
+</section>
+<section id="lassopack" class="level3" data-number="13.0.2">
+<h3 data-number="13.0.2" class="anchored" data-anchor-id="lassopack"><span class="header-section-number">13.0.2</span> lassopack</h3>
+<p>Ahrens, A., Hansen, C.B., Schaffer, M.E. (2020). lassopack: Model Selection and Prediction with Regularized Regression in Stata. The Stata Journal, 20(1):176-235. doi:10.1177/1536867X20909697</p>
+<p>在这篇文章中，我们介绍了 <strong>lassopack</strong>，一个用于 Stata 的正则化回归程序集。<strong>lassopack</strong> 实现了 Lasso、平方根 Lasso、弹性网、岭回归、自适应 Lasso 和后验普通最小二乘法（OLS）。这些方法适用于高维设置，其中预测变量 <span class="math inline">\(p\)</span> 可能很大，甚至大于观察值的数量 <span class="math inline">\(n\)</span>。我们提供了三种选择惩罚（“调优”）参数的方法：信息准则（在 lasso2 中实现）、K 折交叉验证以及用于横截面、面板和时间序列数据的 h 步前滚动交叉验证（cvlasso），以及理论驱动（“严格”或插件）惩罚方法用于横截面和面板数据的 Lasso 和平方根 Lasso（rlasso）。我们讨论了每种方法的理论框架和实践考虑。我们还提供了蒙特卡洛结果，以比较不同惩罚方法的表现。</p>
+<p><a href="#">下载早期的 arXiv 版本 - Stata Journal 论文</a></p>
+<p>如果您在访问 SJ 版本时遇到问题，请随时联系我（AA）。</p>
+<p><a href="#">Bibtex 文件</a></p>
+<hr>
+</section>
+<section id="幻灯片" class="level3" data-number="13.0.3">
+<h3 data-number="13.0.3" class="anchored" data-anchor-id="幻灯片"><span class="header-section-number">13.0.3</span> 幻灯片</h3>
+<p>来自我们在 2018 年伦敦 Stata 大会上的演讲幻灯片可在<a href="#">此处</a>查看。 <strong>pystacked</strong> 的演讲幻灯片可以在<a href="#">这里</a>找到。 <strong>ddml</strong> 的演讲幻灯片可以在<a href="#">这里</a>找到。</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -699,11 +744,11 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../body/09_Installation.html" class="pagination-link" aria-label="安装 ddml">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">安装 ddml</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./body/A01_StataML.html" class="pagination-link" aria-label="欢迎访问 Stata ML 页面">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">欢迎访问 Stata ML 页面</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

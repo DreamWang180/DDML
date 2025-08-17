@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="数量经济学">
-<meta name="dcterms.date" content="2025-08-17">
 
-<title>Quarto Book</title>
+<title>7&nbsp; 部分线性模型与堆叠回归 – Quarto Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,28 +20,64 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./body/A01_StataML.html" rel="next">
-<link href="./images/book-logo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c1f63da3e08f13bc72dc17e92cfd001d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-7bb155a724e1e2e76a6aa2808839ad2c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../body/05_Interactive.html" rel="next">
+<link href="../body/03_PartialLinearIVModel.html" rel="prev">
+<link href="../images/book-logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c1f63da3e08f13bc72dc17e92cfd001d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-7bb155a724e1e2e76a6aa2808839ad2c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -73,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light">
@@ -85,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Home</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../body/01_intro.html"><strong>DDML模型</strong></a></li><li class="breadcrumb-item"><a href="../body/04_PartiallylinearmodelwithStacking.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">部分线性模型与堆叠回归</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -100,10 +134,10 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="https://lianxhcn.github.io/quarto_book/" class="sidebar-logo-link">
-      <img src="./images/book-logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="../images/book-logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Quarto Book</a> 
+      <a href="../">Quarto Book</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/lianxhcn/quarto_book" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
@@ -123,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Home</span></span></a>
   </div>
 </li>
@@ -138,7 +172,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/A01_StataML.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/A01_StataML.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">欢迎访问 Stata ML 页面</span></span></a>
   </div>
 </li>
@@ -155,7 +189,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/10_InstallStataPython.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/10_InstallStataPython.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">设置 Stata 的 Python 集成</span></span></a>
   </div>
 </li>
@@ -172,55 +206,55 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/01_intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/01_intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">设置 Stata 的 Python 集成</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/02_data.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/02_data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">设置 Stata 的 Python 集成</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/03_PartialLinearIVModel.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/03_PartialLinearIVModel.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">部分线性工具变量（IV）模型</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/04_PartiallylinearmodelwithStacking.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/04_PartiallylinearmodelwithStacking.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">部分线性模型与堆叠回归</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/05_Interactive.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/05_Interactive.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">交互式模型</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/06_PartiallyLinearModel.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/06_PartiallyLinearModel.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">部分线性模型</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/07_FlexiblePartiallyLinearIVModel.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/07_FlexiblePartiallyLinearIVModel.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">灵活的部分线性工具变量（IV）模型</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/08_InteractiveIVModel.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/08_InteractiveIVModel.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">交互式工具变量（IV）模型</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/09_Installation.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/09_Installation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">安装 ddml</span></span></a>
   </div>
 </li>
@@ -237,7 +271,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/11_Readingspaper.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/11_Readingspaper.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">ddml</span></span></a>
   </div>
 </li>
@@ -254,28 +288,16 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../body/01_intro.html"><strong>DDML模型</strong></a></li><li class="breadcrumb-item"><a href="../body/04_PartiallylinearmodelwithStacking.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">部分线性模型与堆叠回归</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Quarto Book</h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">部分线性模型与堆叠回归</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>数量经济学 </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2025-08-17</p>
-    </div>
-  </div>
   
     
   </div>
@@ -285,12 +307,75 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p> </p>
-<p><img src="images/book-front.png" width="350"></p>
-<p> </p>
-<p>    <a href="https://www.lianxh.cn">主页</a> || <a href="https://www.lianxh.cn/details/17.html">课程</a> || <a href="https://lianxh-class.cn/">视频</a> || <a href="https://www.lianxh.cn/blogs/all.html">推文</a> || <a href="https://www.lianxh.cn/share.html">资料</a></p>
+<p>堆叠回归是一种简单且强大的方法，用于结合多个学习器的预测结果。在 Stata 中可以通过 <strong>pystacked</strong> 包实现（见此处）。以下是使用部分线性模型的示例，但它也可以与任何由 <strong>ddml</strong> 支持的模型一起使用。</p>
+<section id="步骤-1-初始化" class="level4" data-number="7.0.0.1">
+<h4 data-number="7.0.0.1" class="anchored" data-anchor-id="步骤-1-初始化"><span class="header-section-number">7.0.0.1</span> 步骤 1: 初始化</h4>
+<p>准备：使用上述数据和全局变量。为这个新的估计使用名称 <code>m1</code>，以区别于使用默认名称 <code>m0</code> 的前一个示例。这样可以为比较提供多个估计。此外，还指定了 5 次交叉拟合重复。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>. <span class="kw">set</span> <span class="dv">seed</span> 42</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>. ddml init partial, kfolds(2) reps(5) mname(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>交叉拟合重复次数</strong> DDML 的结果取决于精确的交叉拟合折数分割。我们建议在不同的随机折数上多次重新运行（最终）模型；请参见选项 <code>reps(integer)</code>。</p>
+</section>
+<section id="步骤-2-添加学习器" class="level4" data-number="7.0.0.2">
+<h4 data-number="7.0.0.2" class="anchored" data-anchor-id="步骤-2-添加学习器"><span class="header-section-number">7.0.0.2</span> 步骤 2: 添加学习器</h4>
+<p>为估计条件期望添加监督学习器。堆叠集成中的第一个学习器是 OLS。我们还使用交叉验证的 Lasso、Ridge 和两种不同设置的随机森林，并将它们保存在以下宏中：</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>. <span class="kw">global</span> rflow max_features(5) min_samples_leaf(1) max_samples(.7)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>. <span class="kw">global</span> rfhigh max_features(5) min_samples_leaf(10) max_samples(.7)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>在每一步中，我们添加了 <code>mname(m1)</code> 选项，以确保学习器不会被添加到仍在内存中的 <code>m0</code> 模型中。我们还使用 <code>learner(varname)</code> 选项指定包含估计条件期望的变量名，以避免覆盖使用默认命名为 <code>m0</code> 模型创建的变量。</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>. ddml E[Y|X], mname(m1) learner(Y_m1): pystacked <span class="ot">$Y</span> <span class="ot">$X</span>            || <span class="co">/// </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>&gt;                                method(ols)                       || <span class="co">/// </span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>&gt;                                method(lassocv)                   || <span class="co">/// </span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>&gt;                                method(ridgecv)                   || <span class="co">/// </span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>&gt;                                method(rf) opt(<span class="ot">$rflow</span>)            || <span class="co">/// </span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>&gt;                                method(rf) opt(<span class="ot">$rfhigh</span>), <span class="dv">type</span>(<span class="kw">reg</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>Learner Y_m1 added successfully.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>. ddml E[D|X], mname(m1) learner(D_m1): pystacked <span class="ot">$D</span> <span class="ot">$X</span>            || <span class="co">/// </span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>&gt;                                method(ols)                       || <span class="co">/// </span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>&gt;                                method(lassocv)                   || <span class="co">/// </span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>&gt;                                method(ridgecv)                   || <span class="co">/// </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>&gt;                                method(rf) opt(<span class="ot">$rflow</span>)            || <span class="co">/// </span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>&gt;                                method(rf) opt(<span class="ot">$rfhigh</span>), <span class="dv">type</span>(<span class="kw">reg</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>Learner D_m1 added successfully.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="选项说明" class="level4" data-number="7.0.0.3">
+<h4 data-number="7.0.0.3" class="anchored" data-anchor-id="选项说明"><span class="header-section-number">7.0.0.3</span> 选项说明</h4>
+<p>注意：“：”前和第一个逗号后的选项指的是 <strong>ddml</strong>，最后逗号后的选项指的是估计命令。确保不要混淆这两类选项。</p>
+<p>检查学习器是否已正确添加（省略输出）：</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>. ddml <span class="kw">desc</span>, mname(m1) learners</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="步骤-34-交叉拟合和估计" class="level4" data-number="7.0.0.4">
+<h4 data-number="7.0.0.4" class="anchored" data-anchor-id="步骤-34-交叉拟合和估计"><span class="header-section-number">7.0.0.4</span> 步骤 3/4: 交叉拟合和估计</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>. <span class="kw">qui</span> ddml crossfit, mname(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>. ddml estimate, mname(m1) <span class="kw">robust</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>DDML 估计结果</strong>：</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>spec  r     Y learner     D learner         b        SE</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a> opt  1          Y_m1          D_m1  7362.283 (937.426)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a> opt  2          Y_m1          D_m1  6958.283 (899.946)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a> opt  3          Y_m1          D_m1  6531.201 (872.895)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a> opt  4          Y_m1          D_m1  6532.662 (952.414)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a> opt  5          Y_m1          D_m1  6672.368 (981.239)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>opt = minimum MSE specification for that resample.</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>Mean/med.   Y learner     D learner         b        SE</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a> mse mn     <span class="co">[</span><span class="ot">min-mse</span><span class="co">]</span>         <span class="co">[</span><span class="ot">mse</span><span class="co">]</span>  6811.360 (973.863)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a> mse md     <span class="co">[</span><span class="ot">min-mse</span><span class="co">]</span>         <span class="co">[</span><span class="ot">mse</span><span class="co">]</span>  6672.368 (962.606)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>Median over min-mse specifications</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>y-E<span class="co">[</span><span class="ot">y|X</span><span class="co">]</span>  = Y_m1                                   Number of obs   =      9915</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>D-E<span class="co">[</span><span class="ot">D|X,Z</span><span class="co">]</span>= D_m1</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="in">             |               Robust</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="in">     net_tfa | Coefficient  std. err.      z    P&gt;|z|     [95% conf. interval]</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>-------------+----------------------------------------------------------------</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>        e401 |   6672.368   962.6062     6.93   0.000     4785.695    8559.042</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>5 次重新抽样的总结</strong>：</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="in">       D eqn      mean       min       p25       p50       p75       max</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="in">        e401   6811.3596 6531.2007 6532.6626 6672.3682 6958.2832 7362.2832</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>检查 <strong>pystacked</strong> 使用的学习器权重（未显示）：</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>. ddml extract, mname(m1) show(pystacked)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -699,10 +784,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../body/03_PartialLinearIVModel.html" class="pagination-link" aria-label="部分线性工具变量（IV）模型">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">部分线性工具变量（IV）模型</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./body/A01_StataML.html" class="pagination-link" aria-label="欢迎访问 Stata ML 页面">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">欢迎访问 Stata ML 页面</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../body/05_Interactive.html" class="pagination-link" aria-label="交互式模型">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">交互式模型</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -31,7 +31,7 @@ book:
 
     - part: "**StataDDML 主页简介**"
       chapters: 
-        - body/StataML.md 
+        - body/A01_StataML.md 
     
     - part: "**Stata-Python设置**"
       chapters: 
@@ -72,7 +72,8 @@ format:
     callout-appearance: default        # 启用 callout 默认渲染样式
     md-extensions:
       - callout                        # 确保 markdown 支持 callout 块语法
-editor: visual
+editor:
+  type: visual
 
 
 

@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="数量经济学">
-<meta name="dcterms.date" content="2025-08-17">
 
-<title>Quarto Book</title>
+<title>11&nbsp; 交互式工具变量（IV）模型 – Quarto Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,28 +20,64 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./body/A01_StataML.html" rel="next">
-<link href="./images/book-logo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c1f63da3e08f13bc72dc17e92cfd001d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-7bb155a724e1e2e76a6aa2808839ad2c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../body/09_Installation.html" rel="next">
+<link href="../body/07_FlexiblePartiallyLinearIVModel.html" rel="prev">
+<link href="../images/book-logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c1f63da3e08f13bc72dc17e92cfd001d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-7bb155a724e1e2e76a6aa2808839ad2c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -73,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light">
@@ -85,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Home</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../body/01_intro.html"><strong>DDML模型</strong></a></li><li class="breadcrumb-item"><a href="../body/08_InteractiveIVModel.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">交互式工具变量（IV）模型</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -100,10 +134,10 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="https://lianxhcn.github.io/quarto_book/" class="sidebar-logo-link">
-      <img src="./images/book-logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="../images/book-logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Quarto Book</a> 
+      <a href="../">Quarto Book</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/lianxhcn/quarto_book" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
@@ -123,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Home</span></span></a>
   </div>
 </li>
@@ -138,7 +172,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/A01_StataML.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/A01_StataML.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">欢迎访问 Stata ML 页面</span></span></a>
   </div>
 </li>
@@ -155,7 +189,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/10_InstallStataPython.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/10_InstallStataPython.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">设置 Stata 的 Python 集成</span></span></a>
   </div>
 </li>
@@ -172,55 +206,55 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/01_intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/01_intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">设置 Stata 的 Python 集成</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/02_data.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/02_data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">设置 Stata 的 Python 集成</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/03_PartialLinearIVModel.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/03_PartialLinearIVModel.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">部分线性工具变量（IV）模型</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/04_PartiallylinearmodelwithStacking.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/04_PartiallylinearmodelwithStacking.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">部分线性模型与堆叠回归</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/05_Interactive.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/05_Interactive.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">交互式模型</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/06_PartiallyLinearModel.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/06_PartiallyLinearModel.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">部分线性模型</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/07_FlexiblePartiallyLinearIVModel.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/07_FlexiblePartiallyLinearIVModel.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">灵活的部分线性工具变量（IV）模型</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/08_InteractiveIVModel.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/08_InteractiveIVModel.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">交互式工具变量（IV）模型</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/09_Installation.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/09_Installation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">安装 ddml</span></span></a>
   </div>
 </li>
@@ -237,7 +271,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./body/11_Readingspaper.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/11_Readingspaper.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">ddml</span></span></a>
   </div>
 </li>
@@ -254,28 +288,16 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../body/01_intro.html"><strong>DDML模型</strong></a></li><li class="breadcrumb-item"><a href="../body/08_InteractiveIVModel.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">交互式工具变量（IV）模型</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Quarto Book</h1>
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">交互式工具变量（IV）模型</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>数量经济学 </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2025-08-17</p>
-    </div>
-  </div>
   
     
   </div>
@@ -285,12 +307,114 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p> </p>
-<p><img src="images/book-front.png" width="350"></p>
-<p> </p>
-<p>    <a href="https://www.lianxh.cn">主页</a> || <a href="https://www.lianxh.cn/details/17.html">课程</a> || <a href="https://lianxh-class.cn/">视频</a> || <a href="https://www.lianxh.cn/blogs/all.html">推文</a> || <a href="https://www.lianxh.cn/share.html">资料</a></p>
+<section id="准备工作" class="level4" data-number="11.0.0.1">
+<h4 data-number="11.0.0.1" class="anchored" data-anchor-id="准备工作"><span class="header-section-number">11.0.0.1</span> 准备工作</h4>
+<p>我们加载数据，定义全局宏并设置种子。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>. <span class="kw">use</span> http:<span class="co">//fmwww.bc.edu/repec/bocode/j/jtpa.dta,clear</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>. <span class="kw">global</span> Y earnings</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>. <span class="kw">global</span> D training</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>. <span class="kw">global</span> Z assignmt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>. <span class="kw">global</span> X sex age married <span class="bn">black</span> hispanic</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>. <span class="kw">set</span> <span class="dv">seed</span> 42</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="步骤-1-初始化" class="level4" data-number="11.0.0.2">
+<h4 data-number="11.0.0.2" class="anchored" data-anchor-id="步骤-1-初始化"><span class="header-section-number">11.0.0.2</span> 步骤 1: 初始化</h4>
+<p>我们初始化模型。</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>. ddml init interactiveiv, kfolds(5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="步骤-2-添加学习器" class="level4" data-number="11.0.0.3">
+<h4 data-number="11.0.0.3" class="anchored" data-anchor-id="步骤-2-添加学习器"><span class="header-section-number">11.0.0.3</span> 步骤 2: 添加学习器</h4>
+<p>我们使用堆叠（在 <code>pystacked</code> 中实现）并为每个简化方程添加两个基础学习器。</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>. ddml E[Y|X,Z]: pystacked <span class="ot">$Y</span> c.(<span class="ot">$X</span>)# #c(<span class="ot">$X</span>), <span class="dv">type</span>(<span class="kw">reg</span>) <span class="fu">m</span>(ols lassocv)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>Learner Y1_pystacked added successfully.</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>. ddml E[D|X,Z]: pystacked <span class="ot">$D</span> c.(<span class="ot">$X</span>)# #c(<span class="ot">$X</span>), <span class="dv">type</span>(<span class="kw">class</span>) <span class="fu">m</span>(<span class="kw">logit</span> lassocv)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>Learner D1_pystacked added successfully.</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>. ddml E[Z|X]: pystacked <span class="ot">$Z</span> c.(<span class="ot">$X</span>)# #c(<span class="ot">$X</span>), <span class="dv">type</span>(<span class="kw">class</span>) <span class="fu">m</span>(<span class="kw">logit</span> lassocv)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>Learner Z1_pystacked added successfully.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="步骤-3-4-交叉拟合与估计" class="level4" data-number="11.0.0.4">
+<h4 data-number="11.0.0.4" class="anchored" data-anchor-id="步骤-3-4-交叉拟合与估计"><span class="header-section-number">11.0.0.4</span> 步骤 3-4: 交叉拟合与估计</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>. ddml crossfit</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>Cross-fitting E[<span class="fu">y</span>|X,Z] equation: earnings</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>Cross-fitting fold 1 2 3 4 5 ...completed <span class="kw">cross</span>-fitting</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>Cross-fitting E[D|X,Z] equation: training</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>Cross-fitting fold 1 2 3 4 5 ...completed <span class="kw">cross</span>-fitting</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>Cross-fitting E[Z|X]: assignmt</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>Cross-fitting fold 1 2 3 4 5 ...completed <span class="kw">cross</span>-fitting</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>. ddml estimate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>DDML 估计结果 (LATE)：</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>spec  r    Y0 learner    Y1 learner    D0 learner    D1 learner         b        SE     Z learner</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> opt  1  Y1_pystacked  Y1_pystacked  D1_pystacked  D1_pystacked  1817.206 (512.772)  Z1_pystacked</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>opt = minimum MSE specification for that resample.</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>E<span class="co">[</span><span class="ot">y|X,D=0</span><span class="co">]</span>   = Y1_pystacked0_1                     Number of obs   =     11204</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>E<span class="co">[</span><span class="ot">y|X,D=1</span><span class="co">]</span>   = Y1_pystacked1_1</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>E<span class="co">[</span><span class="ot">D|X,Z=0</span><span class="co">]</span>   = D1_pystacked0_1</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>E<span class="co">[</span><span class="ot">D|X,Z=1</span><span class="co">]</span>   = D1_pystacked1_1</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>E<span class="co">[</span><span class="ot">Z|X</span><span class="co">]</span>       = Z1_pystacked_1</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="in">             |               Robust</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="in">    earnings | Coefficient  std. err.      z    P&gt;|z|     [95% conf. interval]</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>-------------+----------------------------------------------------------------</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    training |   1817.206   512.7723     3.54   0.000     812.1911    2822.221</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="短堆叠short-stacking" class="level4" data-number="11.0.0.5">
+<h4 data-number="11.0.0.5" class="anchored" data-anchor-id="短堆叠short-stacking"><span class="header-section-number">11.0.0.5</span> 短堆叠（Short-stacking）</h4>
+<p>如果我们想要使用短堆叠而不是堆叠，步骤如下：</p>
+<p>初始化：</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>. <span class="kw">set</span> <span class="dv">seed</span> 42</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>. ddml init interactiveiv, kfolds(5)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>warning - <span class="kw">model</span> m0 already exists</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ot">all</span> existing <span class="kw">model</span> results and variables will</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">be</span> dropped and <span class="kw">model</span> m0 will <span class="kw">be</span> re-initialized</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>添加基础学习器：</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>. ddml E[Y|X,Z]: <span class="kw">reg</span> <span class="ot">$Y</span> <span class="ot">$X</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>Learner Y1_reg added successfully.</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>. ddml E[Y|X,Z]: pystacked <span class="ot">$Y</span> c.(<span class="ot">$X</span>)# #c(<span class="ot">$X</span>), <span class="dv">type</span>(<span class="kw">reg</span>) <span class="fu">m</span>(lassocv)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>Learner Y2_pystacked added successfully.</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>. ddml E[D|X,Z]: <span class="kw">logit</span> <span class="ot">$D</span> <span class="ot">$X</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>Learner D1_logit added successfully.</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>. ddml E[D|X,Z]: pystacked <span class="ot">$D</span> c.(<span class="ot">$X</span>)# #c(<span class="ot">$X</span>), <span class="dv">type</span>(<span class="kw">class</span>) <span class="fu">m</span>(lassocv)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>Learner D2_pystacked added successfully.</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>. ddml E[Z|X]: <span class="kw">logit</span> <span class="ot">$Z</span> <span class="ot">$X</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>Learner Z1_logit added successfully.</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>. ddml E[Z|X]: pystacked <span class="ot">$Z</span> c.(<span class="ot">$X</span>)# #c(<span class="ot">$X</span>), <span class="dv">type</span>(<span class="kw">class</span>) <span class="fu">m</span>(lassocv)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>Learner Z2_pystacked added successfully.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>使用短堆叠选项进行交叉拟合：</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>. ddml crossfit, shortstack</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>Cross-fitting E[<span class="fu">y</span>|X,Z] equation: earnings</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>Cross-fitting fold 1 2 3 4 5 ...completed <span class="kw">cross</span>-fitting...completed <span class="kw">short</span>-stacking</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>Cross-fitting E[D|X,Z] equation: training</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>Cross-fitting fold 1 2 3 4 5 ...completed <span class="kw">cross</span>-fitting...completed <span class="kw">short</span>-stacking</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>Cross-fitting E[Z|X]: assignmt</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>Cross-fitting fold 1 2 3 4 5 ...completed <span class="kw">cross</span>-fitting...completed <span class="kw">short</span>-stacking</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>估计阶段：</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>. ddml estimate, <span class="kw">robust</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>短堆叠 DDML 模型 (LATE)：</strong></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>spec  r    Y0 learner    Y1 learner    D0 learner    D1 learner         b        SE     Z learner</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a> opt  1  Y2_pystacked  Y2_pystacked      D1_logit  D2_pystacked  1824.422 (514.303)  Z2_pystacked</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  ss  1  <span class="co">[</span><span class="ot">shortstack</span><span class="co">]</span>          <span class="co">[</span><span class="ot">ss</span><span class="co">]</span>          <span class="co">[</span><span class="ot">ss</span><span class="co">]</span>          <span class="co">[</span><span class="ot">ss</span><span class="co">]</span>  1818.488 (513.133)          <span class="co">[</span><span class="ot">ss</span><span class="co">]</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>opt = minimum MSE specification for that resample.</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>Shortstack DDML model (LATE)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>E<span class="co">[</span><span class="ot">y|X,D=0</span><span class="co">]</span>   = earnings_ss0_1                      Number of obs   =     11204</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>E<span class="co">[</span><span class="ot">y|X,D=1</span><span class="co">]</span>   = earnings_ss1_1</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>E<span class="co">[</span><span class="ot">D|X,Z=0</span><span class="co">]</span>   = training_ss0_1</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>E<span class="co">[</span><span class="ot">D|X,Z=1</span><span class="co">]</span>   = training_ss1_1</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>E<span class="co">[</span><span class="ot">Z|X</span><span class="co">]</span>       = assignmt_ss_1</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="in">             |               Robust</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="in">    earnings | Coefficient  std. err.      z    P&gt;|z|     [95% conf. interval]</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>-------------+----------------------------------------------------------------</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    training |   1818.488    513.133     3.54   0.000     812.7663    2824.211</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -699,10 +823,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../body/07_FlexiblePartiallyLinearIVModel.html" class="pagination-link" aria-label="灵活的部分线性工具变量（IV）模型">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">灵活的部分线性工具变量（IV）模型</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./body/A01_StataML.html" class="pagination-link" aria-label="欢迎访问 Stata ML 页面">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">欢迎访问 Stata ML 页面</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../body/09_Installation.html" class="pagination-link" aria-label="安装 ddml">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">安装 ddml</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -2,18 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://lianxhcn.github.io/quarto_book/index.html</loc>
-    <lastmod>2025-06-23T02:15:29.763Z</lastmod>
+    <lastmod>2025-08-17T01:23:08.187Z</lastmod>
   </url>
   <url>
-    <loc>https://lianxhcn.github.io/quarto_book/body/01--DID.html</loc>
-    <lastmod>2025-06-23T02:21:36.012Z</lastmod>
+    <loc>https://lianxhcn.github.io/quarto_book/body/A01_StataML.html</loc>
+    <lastmod>2025-07-24T07:23:20.390Z</lastmod>
   </url>
   <url>
-    <loc>https://lianxhcn.github.io/quarto_book/body/02--进展.html</loc>
-    <lastmod>2025-06-23T02:21:54.340Z</lastmod>
+    <loc>https://lianxhcn.github.io/quarto_book/body/10_InstallStataPython.html</loc>
+    <lastmod>2025-07-24T13:30:43.553Z</lastmod>
   </url>
   <url>
-    <loc>https://lianxhcn.github.io/quarto_book/body/03--SCM.html</loc>
-    <lastmod>2025-06-23T02:22:10.695Z</lastmod>
+    <loc>https://lianxhcn.github.io/quarto_book/body/01_intro.html</loc>
+    <lastmod>2025-07-24T01:23:16.192Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lianxhcn.github.io/quarto_book/body/02_data.html</loc>
+    <lastmod>2025-07-24T01:23:16.192Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lianxhcn.github.io/quarto_book/body/03_PartialLinearIVModel.html</loc>
+    <lastmod>2025-07-24T02:48:56.411Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lianxhcn.github.io/quarto_book/body/04_PartiallylinearmodelwithStacking.html</loc>
+    <lastmod>2025-07-24T02:43:27.819Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lianxhcn.github.io/quarto_book/body/05_Interactive.html</loc>
+    <lastmod>2025-07-24T08:15:13.727Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lianxhcn.github.io/quarto_book/body/06_PartiallyLinearModel.html</loc>
+    <lastmod>2025-07-24T02:41:06.301Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lianxhcn.github.io/quarto_book/body/07_FlexiblePartiallyLinearIVModel.html</loc>
+    <lastmod>2025-07-24T02:50:05.378Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lianxhcn.github.io/quarto_book/body/08_InteractiveIVModel.html</loc>
+    <lastmod>2025-07-24T02:51:16.308Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lianxhcn.github.io/quarto_book/body/09_Installation.html</loc>
+    <lastmod>2025-07-24T02:52:26.428Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lianxhcn.github.io/quarto_book/body/11_Readingspaper.html</loc>
+    <lastmod>2025-07-24T02:23:48.262Z</lastmod>
   </url>
 </urlset>
